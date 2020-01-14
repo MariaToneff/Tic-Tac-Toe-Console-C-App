@@ -1,1 +1,1 @@
-# Tic-Tac-Toe-Console-C-App
+# Tic Tac Toe - Console CSharp App

@@ -62,6 +62,22 @@ namespace TicTacToe.Renderers
                 }
             }
 
+            //up and down row lines
+
+            for (int i = startRowPrint - 2; i < startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) + 2; i++)
+            {
+                Console.BackgroundColor = DarkSquareConsoleColor;
+                Console.SetCursorPosition(i, startColPrint);
+                Console.Write(" ");
+            }
+
+            for (int i = startRowPrint - 2; i < startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) + 2; i++)
+            {
+                Console.BackgroundColor = DarkSquareConsoleColor;
+                Console.SetCursorPosition(i, startColPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) - 1);
+                Console.Write(" ");
+            }
+
             //middle row lines
 
             for (int i = startRowPrint - 2; i < startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) + 2; i++)
@@ -82,19 +98,19 @@ namespace TicTacToe.Renderers
                 Console.Write(" ");
             }
 
-            //up and down row lines
+            // left ang right column lines
 
-            for (int i = startRowPrint - 2; i < startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) + 2; i++)
+            for (int i = startColPrint - 2; i < startColPrint + (board.TotalCols * ConsoleConstants.CharactersPerColPerBoardSquare) + 2; i++)
             {
                 Console.BackgroundColor = DarkSquareConsoleColor;
-                Console.SetCursorPosition(i, startColPrint);
+                Console.SetCursorPosition(startRowPrint, i);
                 Console.Write(" ");
             }
 
-            for (int i = startRowPrint - 2; i < startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) + 2; i++)
+            for (int i = startColPrint - 2; i < startColPrint + (board.TotalCols * ConsoleConstants.CharactersPerColPerBoardSquare) + 2; i++)
             {
                 Console.BackgroundColor = DarkSquareConsoleColor;
-                Console.SetCursorPosition(i, startColPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) - 1);
+                Console.SetCursorPosition(startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) - 1, i);
                 Console.Write(" ");
             }
 
@@ -112,22 +128,6 @@ namespace TicTacToe.Renderers
                 Console.BackgroundColor = LightSquareConsoleColor;
                 Console.SetCursorPosition(startRowPrint + ConsoleConstants.CharactersPerColPerBoardSquare * 2 - 1, i);
                 Console.Write("  ");
-            }
-
-            // left ang right column lines
-
-            for (int i = startColPrint - 2; i < startColPrint + (board.TotalCols * ConsoleConstants.CharactersPerColPerBoardSquare) + 2; i++)
-            {
-                Console.BackgroundColor = DarkSquareConsoleColor;
-                Console.SetCursorPosition(startRowPrint, i);
-                Console.Write(" ");
-            }
-
-            for (int i = startColPrint - 2; i < startColPrint + (board.TotalCols * ConsoleConstants.CharactersPerColPerBoardSquare) + 2; i++)
-            {
-                Console.BackgroundColor = DarkSquareConsoleColor;
-                Console.SetCursorPosition(startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) - 1, i);
-                Console.Write(" ");
             }
         }
         private void PrintBorder(int startRowPrint, int startColPrint, int boardTotalRows, int boardTotalCols)

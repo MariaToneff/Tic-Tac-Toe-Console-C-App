@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using TicTacToe.Figures.Contracts;
 using TicTacToe.Players;
 
@@ -140,7 +141,14 @@ namespace TicTacToe.Common.Console
 
         public static void PrintWinner(IPlayer player)
         {
+            Thread.Sleep(2000);
             System.Console.Clear();
+
+            var winnerText = $"Congratulations! {player.Name} WON THE GAME!";
+            ConsoleHelpers.SetCursorAtCenter(winnerText.Length);
+            System.Console.WriteLine(winnerText);
+
+            Thread.Sleep(3000);
         }
     }
 }

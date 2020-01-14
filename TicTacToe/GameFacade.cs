@@ -20,9 +20,6 @@ namespace TicTacToe
 
             gameEngine.Initialize(gameInitializationStrategy);
             gameEngine.Start();
-
-            System.Console.Clear();
-            System.Console.ReadLine();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TicTacToe.Board.Contracts;
 using TicTacToe.Common;
+using TicTacToe.Common.Console;
 using TicTacToe.Engine.Contracts;
 using TicTacToe.Figures;
 using TicTacToe.Figures.Contracts;
@@ -57,16 +58,22 @@ namespace TicTacToe.Engine
 
                     board.AddFigure(figure, to);
                     this.renderer.RenderBoard(this.board);
-                    WinningConditions(this.board);
+
+                    try
+                    {
+                        WinningConditions(this.board);
+                    }
+                    catch (Exception ex)
+                    {
+                        this.renderer.PrintErrorMessage(ex.Message);
+                        ConsoleHelpers.PrintWinner(player);
+                        return;
+                    }
                 }
                 catch (Exception ex)
                 {
                     this.currentPlayerIndex--;
                     this.renderer.PrintErrorMessage(ex.Message);
-                    if (ex.Message == GlobalConstants.GameOverMessage)
-                    {
-                        return;
-                    }
                 }
             }
         }

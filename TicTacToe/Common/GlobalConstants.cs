@@ -11,5 +11,7 @@
         public const int StandardGameTotalBoardCols = 3;
 
         public const int StandardGameNumberOfPlayers = 2;
+
+        public const string GameOverMessage = "GAME OVER";
     }
 }

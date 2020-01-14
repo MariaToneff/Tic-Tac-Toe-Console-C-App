@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using TicTacToe.Figures.Contracts;
+using TicTacToe.Players;
 
 namespace TicTacToe.Common.Console
 {
@@ -135,6 +136,11 @@ namespace TicTacToe.Common.Console
             System.Console.BackgroundColor = ConsoleColor.Black;
             System.Console.SetCursorPosition(0, row);
             System.Console.Write(new string(' ', System.Console.WindowWidth));
+        }
+
+        public static void PrintWinner(IPlayer player)
+        {
+            System.Console.Clear();
         }
     }
 }

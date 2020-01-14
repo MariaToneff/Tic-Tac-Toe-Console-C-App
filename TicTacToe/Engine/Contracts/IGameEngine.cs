@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TicTacToe.Board.Contracts;
 using TicTacToe.Players;
 
 namespace TicTacToe.Engine.Contracts
@@ -11,6 +12,6 @@ namespace TicTacToe.Engine.Contracts
 
         void Start();
 
-        void WinningConditions();
+        void WinningConditions(IBoard board);
     }
 }

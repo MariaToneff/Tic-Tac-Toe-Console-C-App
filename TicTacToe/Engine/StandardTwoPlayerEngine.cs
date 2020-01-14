@@ -57,15 +57,112 @@ namespace TicTacToe.Engine
 
                     board.AddFigure(figure, to);
                     this.renderer.RenderBoard(this.board);
+                    WinningConditions(this.board);
                 }
                 catch (Exception ex)
                 {
                     this.currentPlayerIndex--;
                     this.renderer.PrintErrorMessage(ex.Message);
+                    if (ex.Message == GlobalConstants.GameOverMessage)
+                    {
+                        return;
+                    }
                 }
             }
         }
+        public void EndGame()
+        {
 
+        }
+        public void WinningConditions(IBoard board)
+        {
+            //row check
+            for (int row = GlobalConstants.MinimumRowValueOnBoard; row <= GlobalConstants.MaximumRowValueOnBoard; row++)
+            {
+
+                for (char col = GlobalConstants.MinimumColumnValueOnBoard; col < GlobalConstants.MaximumColumnValueOnBoard; col++)
+                {
+                    var figure1 = board.GetFigureAtPosition(new Position(row, col));
+                    var figure2 = board.GetFigureAtPosition(new Position(row, ++col));
+                    var figure3 = board.GetFigureAtPosition(new Position(row, ++col));
+
+                    if (figure1 == null || figure2 == null || figure3 == null)
+                    {
+                        break;
+                    }
+
+                    if (figure1.FigureType == figure2.FigureType && figure2.FigureType == figure3.FigureType)
+                    {
+                        throw new Exception(GlobalConstants.GameOverMessage);
+                    }
+                }
+            }
+
+            //column check
+            for (char col = GlobalConstants.MinimumColumnValueOnBoard; col < GlobalConstants.MaximumColumnValueOnBoard; col++)
+            {
+
+                for (int row = GlobalConstants.MinimumRowValueOnBoard; row <= GlobalConstants.MaximumRowValueOnBoard; row++)
+                {
+                    var figure1 = board.GetFigureAtPosition(new Position(row, col));
+                    var figure2 = board.GetFigureAtPosition(new Position(++row, col));
+                    var figure3 = board.GetFigureAtPosition(new Position(++row, col));
+
+                    if (figure1 == null || figure2 == null || figure3 == null)
+                    {
+                        break;
+                    }
+
+                    if (figure1.FigureType == figure2.FigureType && figure2.FigureType == figure3.FigureType)
+                    {
+                        throw new Exception(GlobalConstants.GameOverMessage);
+                    }
+                }
+            }
+
+            //diagonal check
+            for (int row = GlobalConstants.MinimumRowValueOnBoard; row <= GlobalConstants.MaximumRowValueOnBoard; row++)
+            {
+
+                for (char col = GlobalConstants.MinimumColumnValueOnBoard; col < GlobalConstants.MaximumColumnValueOnBoard; col++)
+                {
+                    var figure1 = board.GetFigureAtPosition(new Position(row, col));
+                    var figure2 = board.GetFigureAtPosition(new Position(++row, ++col));
+                    var figure3 = board.GetFigureAtPosition(new Position(++row, ++col));
+
+                    if (figure1 == null || figure2 == null || figure3 == null)
+                    {
+                        break;
+                    }
+
+                    if (figure1.FigureType == figure2.FigureType && figure2.FigureType == figure3.FigureType)
+                    {
+                        throw new Exception(GlobalConstants.GameOverMessage);
+                    }
+                }
+            }
+
+            for (int row = GlobalConstants.MinimumRowValueOnBoard; row <= GlobalConstants.MaximumRowValueOnBoard; row++)
+            {
+
+                for (char col = GlobalConstants.MaximumColumnValueOnBoard; col > GlobalConstants.MinimumColumnValueOnBoard; col--)
+                {
+                    var figure1 = board.GetFigureAtPosition(new Position(row, col));
+                    var figure2 = board.GetFigureAtPosition(new Position(++row, --col));
+                    var figure3 = board.GetFigureAtPosition(new Position(++row, --col));
+
+                    if (figure1 == null || figure2 == null || figure3 == null)
+                    {
+                        break;
+                    }
+
+                    if (figure1.FigureType == figure2.FigureType && figure2.FigureType == figure3.FigureType)
+                    {
+                        throw new Exception(GlobalConstants.GameOverMessage);
+                    }
+                }
+            }
+        }
         private IPlayer GetNextPlayer()
         {
             this.currentPlayerIndex++;
@@ -75,11 +172,6 @@ namespace TicTacToe.Engine
             }
 
             return this.players[this.currentPlayerIndex];
-        }
-
-        public void WinningConditions()
-        {
-
         }
         private void SetFirstPlayerIndex()
         {

@@ -11,6 +11,7 @@ namespace TicTacToe.Renderers
     {
         private const string Logo = "TIC TAC TOE";
         private const ConsoleColor LightSquareConsoleColor = ConsoleColor.Gray;
+        private const ConsoleColor DarkSquareConsoleColor = ConsoleColor.DarkGray;
 
         public ConsoleRenderer()
         {
@@ -61,59 +62,71 @@ namespace TicTacToe.Renderers
                 }
             }
 
+            //middle row lines
+
             for (int i = startRowPrint - 2; i < startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) + 2; i++)
             {
                 Console.BackgroundColor = LightSquareConsoleColor;
                 Console.SetCursorPosition(i, startColPrint - 2 + ConsoleConstants.CharactersPerRowPerBoardSquare + 1);
                 Console.Write(" ");
-            }
-
-            for (int i = startRowPrint - 2; i < startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) + 2; i++)
-            {
-                Console.BackgroundColor = LightSquareConsoleColor;
-                Console.SetCursorPosition(i, startColPrint - 2 + (ConsoleConstants.CharactersPerRowPerBoardSquare + 1) * 2);
+                Console.SetCursorPosition(i, startColPrint - 2 + ConsoleConstants.CharactersPerRowPerBoardSquare + 1 + 1);
                 Console.Write(" ");
             }
 
             for (int i = startRowPrint - 2; i < startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) + 2; i++)
             {
                 Console.BackgroundColor = LightSquareConsoleColor;
+                Console.SetCursorPosition(i, startColPrint - 2 + (ConsoleConstants.CharactersPerRowPerBoardSquare + 1) * 2 - 1);
+                Console.Write(" ");
+                Console.SetCursorPosition(i, startColPrint - 2 + (ConsoleConstants.CharactersPerRowPerBoardSquare + 1) * 2);
+                Console.Write(" ");
+            }
+
+            //up and down row lines
+
+            for (int i = startRowPrint - 2; i < startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) + 2; i++)
+            {
+                Console.BackgroundColor = DarkSquareConsoleColor;
                 Console.SetCursorPosition(i, startColPrint);
                 Console.Write(" ");
             }
 
             for (int i = startRowPrint - 2; i < startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) + 2; i++)
             {
-                Console.BackgroundColor = LightSquareConsoleColor;
+                Console.BackgroundColor = DarkSquareConsoleColor;
                 Console.SetCursorPosition(i, startColPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) - 1);
                 Console.Write(" ");
             }
 
+            //middle column lines
+
             for (int i = startColPrint - 2; i < startColPrint + (board.TotalCols * ConsoleConstants.CharactersPerColPerBoardSquare) + 2; i++)
             {
                 Console.BackgroundColor = LightSquareConsoleColor;
-                Console.SetCursorPosition(startRowPrint + ConsoleConstants.CharactersPerColPerBoardSquare, i);
-                Console.Write(" ");
+                Console.SetCursorPosition(startRowPrint + ConsoleConstants.CharactersPerColPerBoardSquare - 1, i);
+                Console.Write("  ");
             }
 
             for (int i = startColPrint - 2; i < startColPrint + (board.TotalCols * ConsoleConstants.CharactersPerColPerBoardSquare) + 2; i++)
             {
                 Console.BackgroundColor = LightSquareConsoleColor;
-                Console.SetCursorPosition(startRowPrint + ConsoleConstants.CharactersPerColPerBoardSquare * 2 + 1, i);
-                Console.Write(" ");
+                Console.SetCursorPosition(startRowPrint + ConsoleConstants.CharactersPerColPerBoardSquare * 2 - 1, i);
+                Console.Write("  ");
             }
+
+            // left ang right column lines
 
             for (int i = startColPrint - 2; i < startColPrint + (board.TotalCols * ConsoleConstants.CharactersPerColPerBoardSquare) + 2; i++)
             {
-                Console.BackgroundColor = LightSquareConsoleColor;
-                Console.SetCursorPosition(startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) - 1, i);
-                Console.Write(" ");
-            }
-
-            for (int i = startColPrint - 2; i < startColPrint + (board.TotalCols * ConsoleConstants.CharactersPerColPerBoardSquare) + 2; i++)
-            {
-                Console.BackgroundColor = LightSquareConsoleColor;
+                Console.BackgroundColor = DarkSquareConsoleColor;
                 Console.SetCursorPosition(startRowPrint, i);
+                Console.Write(" ");
+            }
+
+            for (int i = startColPrint - 2; i < startColPrint + (board.TotalCols * ConsoleConstants.CharactersPerColPerBoardSquare) + 2; i++)
+            {
+                Console.BackgroundColor = DarkSquareConsoleColor;
+                Console.SetCursorPosition(startRowPrint + (board.TotalRows * ConsoleConstants.CharactersPerRowPerBoardSquare) - 1, i);
                 Console.Write(" ");
             }
         }

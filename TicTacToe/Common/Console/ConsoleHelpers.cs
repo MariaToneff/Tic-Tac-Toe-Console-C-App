@@ -8,30 +8,48 @@ namespace TicTacToe.Common.Console
     {
         private static readonly IDictionary<FigureTypes, bool[,]> Patterns = new Dictionary<FigureTypes, bool[,]>
         {
-            { FigureTypes.X, new[,]
-                {
-                    { false, false, false, false, false, false, false, false, false, },
-                    { false, true, true, false, false, false, true, true, false, },
-                    { false, true, true, true, false, true, true, true, false, },
-                    { false, false, true, true, true, true, true, false, false, },
-                    { false, false, false, true, true, true, false, false, false, },
-                    { false, false, true, true, true, true, true, false, false, },
-                    { false, true, true, true, false, true, true, true, false, },
-                    { false, true, true, false, false, false, true, true, false, },
-                    { false, false, false, false, false, false, false, false, false, }
-                }
-            },
             { FigureTypes.O, new[,]
                 {
-                    { false, false, false, false, false, false, false, false, false, },
-                    { false, false, false, true, true, true, false, false, false, },
-                    { false, false, true, true, false, true, true, false, false, },
-                    { false, true, true, false, false, false, true, true, false, },
-                    { false, true, true, false, false, false, true, true, false, },
-                    { false, true, true, false, false, false, true, true, false, },
-                    { false, false, true, true, false, true, true, false, false, },
-                    { false, false, false, true, true, true, false, false, false, },
-                    { false, false, false, false, false, false, false, false, false, }
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, true, true, true, true, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, true, true, true, true, true, true, false, false, false, false, false, false,},
+                    { false, false, false, false, false, true, true, false, false, false, false, true, true, false, false, false, false, false,},
+                    { false, false, false, false, true, true, false, false, false, false, false, false, true, true, false, false, false, false,},
+                    { false, false, false, true, true, false, false, false, false, false, false, false, false, true, true, false, false, false,},
+                    { false, false, true, true, false, false, false, false, false, false, false, false, false, false, true, true, false, false,},
+                    { false, false, true, true, false, false, false, false, false, false, false, false, false, false, true, true, false, false,},
+                    { false, false, true, true, false, false, false, false, false, false, false, false, false, false, true, true, false, false,},
+                    { false, false, true, true, false, false, false, false, false, false, false, false, false, false, true, true, false, false,},
+                    { false, false, false, true, true, false, false, false, false, false, false, false, false, true, true, false, false, false,},
+                    { false, false, false, false, true, true, false, false, false, false, false, false, true, true, false, false, false, false,},
+                    { false, false, false, false, false, true, true, false, false, false, false, true, true, false, false, false, false, false,},
+                    { false, false, false, false, false, false, true, true, true, true, true, true, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, true, true, true, true, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,}
+                }
+            },
+            { FigureTypes.X, new[,]
+                {
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,},
+                    { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,}
                 }
             }
         };
@@ -57,6 +75,15 @@ namespace TicTacToe.Common.Console
 
             var figurePattern = Patterns[figure.FigureType];
 
+            if (figure.FigureType == FigureTypes.X)
+            {
+                backgroundColor = ConsoleColor.Red;
+            }
+            else
+            {
+                backgroundColor = ConsoleColor.Blue;
+            }
+
             for (int i = 0; i < figurePattern.GetLength(0); i++)
             {
                 for (int j = 0; j < figurePattern.GetLength(1); j++)
@@ -64,11 +91,11 @@ namespace TicTacToe.Common.Console
                     System.Console.SetCursorPosition(left + j, top + i);
                     if (figurePattern[i, j] == true)
                     {
-                        System.Console.BackgroundColor = ConsoleColor.White;
+                        System.Console.BackgroundColor = backgroundColor;
                     }
                     else
                     {
-                        System.Console.BackgroundColor = backgroundColor;
+                        System.Console.BackgroundColor = ConsoleColor.Black;
                     };
 
                     System.Console.Write(" ");

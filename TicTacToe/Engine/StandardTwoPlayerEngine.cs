@@ -77,10 +77,6 @@ namespace TicTacToe.Engine
                 }
             }
         }
-        public void EndGame()
-        {
-
-        }
         public void WinningConditions(IBoard board)
         {
             //row check

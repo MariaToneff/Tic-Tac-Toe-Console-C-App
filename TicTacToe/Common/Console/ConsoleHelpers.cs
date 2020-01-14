@@ -141,7 +141,7 @@ namespace TicTacToe.Common.Console
 
         public static void PrintWinner(IPlayer player)
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             System.Console.Clear();
 
             var winnerText = $"Congratulations! {player.Name} WON THE GAME!";
